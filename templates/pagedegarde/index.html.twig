@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pagedegarde index{% endblock %}
+
+{% block body %}
+    
+
+    <table class="table jumbotron">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Numero_copieoriginal</th>
+                <th>Numero_copie1</th>
+                <th>Numero_copie2</th>
+                <th>Numero_copie3</th>
+                <th>Numero_copie4</th>
+                <th>Numero_copie5</th>
+                <th>Numero_copiebureau</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pagedegarde in pagedegardes %}
+            <tr>
+                <td>{{ pagedegarde.id }}</td>
+                <td>{{ pagedegarde.numeroCopieoriginal }}</td>
+                <td>{{ pagedegarde.numeroCopie1 }}</td>
+                <td>{{ pagedegarde.numeroCopie2 }}</td>
+                <td>{{ pagedegarde.numeroCopie3 }}</td>
+                <td>{{ pagedegarde.numeroCopie4 }}</td>
+                <td>{{ pagedegarde.numeroCopie5 }}</td>
+                <td>{{ pagedegarde.numeroCopiebureau }}</td>
+                <td>{{ pagedegarde.nomEtablissement }}</td>
+                <td><a href="{{ asset("page_de_garde/" ~ pagedegarde.fichier) }}" target = "_blank" >Visualiser</a></td>
+                <td>
+                    <a href="{{ path('pagedegarde_show', {'id': pagedegarde.id}) }}">show</a>
+                    <a href="{{ path('pagedegarde_edit', {'id': pagedegarde.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('pagedegarde_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,229 @@
+  {% extends 'base.html.twig' %}
+
+  {% block title %}Site de gestion de nos appels d'offres!{% endblock %}
+
+  {% block body %}
+  <style>
+  .colore{
+      background-color:black;
+       height:120px;
+       width:1400px;
+       font-size:20px;
+       font-family : Verdana, Geneva, sans-serif;
+  }
+.droite{
+  margin-left:230px;
+ 
+}
+.carousel-page
+{
+width:148px;
+height:100px;
+background-color:#5f666d;
+color:white;
+}
+.origine{
+  background-color:grey;
+}
+.center{
+  text-align:center;
+}
+
+.template{
+  border: 15px  bold black;
+   background-color:	#00FFFF;
+
+}
+
+#astuce{
+  margin-left:280px;
+  align:center;
+  margin-top:100px;
+ 
+}
+  </style>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed colore">
+<img  src="{{'img/2iris.jpg'}}">
+  <a class="navbar-brand" href="#">2IRIS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link  fa fa-home" href="#">Acceuil <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fa fa-bar-chart" href="{{path('reponseoffredappel_new')}}">Statistiques</a>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle fas fa-folder-open" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Nos Documents
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{{path('dossieradministratif_index')}}">Dossier administratif</a>
+          <a class="dropdown-item" href="#">Lettre de soumission</a>
+          <a class="dropdown-item" href="{{path('lettre_de_retrait_index')}}">retrait de cahier de charge</a>
+          <a class="dropdown-item" href="{{path('pagedegarde_index')}}">Page de garde</a>
+          <a class="dropdown-item" href="{{path('sommaire_index')}}">Sommaire</a>
+        </div>
+        <li class="nav-item">
+        <a class="nav-link 	fas fa-user" href="{{path('app_register')}}">Inscription</a>
+      </li>
+       {% if  app.user %}
+      <li class="nav-item">
+        <a class="nav-link droite glyphicon glyphicon-user" href="{{path('app_logout')}}">Deconnexion</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-link droite glyphicon glyphicon-user" href="{{path('app_login')}}">Connexion</a>
+      </li>
+      {% endif %}
+      </li>
+    </ul>
+  </div>
+
+</nav>
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="images/logo4.jpg" alt="First slide">
+    </div>
+    
+  </div>
+</div>
+
+
+ 
+<div >
+     <div>
+        <img  src="{{'images/astuce.jpg'}}"  width=750px  height=550px id="astuce">
+        <p><br>
+        Chaque année la commande publique représente plusieurs milliards d’euros. Seulement les marchés publics sont régie par d’autres règles que le commerce et la vente classique. En effet, ils font l’objet d’une procédure stricte que les organismes publics doivent suivre à la lettre. L’une des étapes de cette procédure est l’établissement d’un appel d’offre afin de recueillir les propositions et ensuite de sélectionner celle qui leur semble le mieux.
+
+        Nous allons tenter de vous donner quelques petites astuces vous permettant de remporter un appel d’offre. Cette liste d’astuces n’est en aucun cas exhaustive et chaque entreprise doit opter pour le fonctionnement qui lui convient le mieux. Voici 10 petites astuces qui augmenteront vos chances de remporter un appel d’offre.
+        </p>
+
+        
+     </div>
+ <div>
+            <h1>1/ Identifier les offres le plus tôt</h1><br>
+            
+             <img  src="{{'images/offre.jpg'}}" class="center"/>
+            <p>
+                Dans un premier temps il est nécessaire d’identifier les appels d’offres suffisamment tôt afin de pouvoir bénéficier d’un maximum de temps pour y répondre. Vous pouvez alors vous inscrire à des envois d’alertes par email lorsqu’un appel d’offre est mis en ligne.
+            </p>
+ </div>
+
+ <div class="template">
+ <h1>2/ Sélectionner les appels que vous pouvez remporter</h1>
+    <p>Répondre à un appel d’offres demande beaucoup de temps et d’investissement de la part de vos collaborateurs. Il est donc préférable de sélectionner des appels d’offres pour lesquels vous avez une réelle chance de remporter la mise. Il est judicieux de privilégier la qualité à la quantité.</p>
+ </div>
+ </div>
+
+ <div>
+     <h1>3/ Se faire connaître auprès des demandeurs</h1>
+
+     <p>Le choix entre les offres est fait par des humains et il est donc soumis à d’autres éléments que la simple capacité à faire le travail. Il est donc important de se faire connaître, de développer sa notoriété auprès des demandeurs. Contactez-les, pour poser des questions et établir une véritable relation entre vous. Si un climat de confiance est établi il peut être un atout de plus dans votre manche lors du choix final.</p>
+ </div>
+
+ <div>
+    <h1>4/ Adapter le mémoire au projet</h1>
+    <p>Comme pour une lettre de motivation le destinataire apprécie de lire quelque chose de personnalisé. Il est donc important d’adapter son dossier en fonction des attentes de l’expéditeur de l’appel d’offres. Certains apprécieront une grande partie administrative alors que d’autres s’attacheront seulement au technique.</p>
+</div>
+
+<div class="template">
+  <h1>5/ Répondre au maximum aux attentes</h1>
+  <p>Un des éléments, et surement le plus important, est de répondre à un maximum de points exigés par l’auteur de l’appel d’offres. Si vous ne répondez pas à tous les points mettez en avant les solutions que vous envisagez pour y répondre. Montrez que vous avez réalisé une démarche afin de coller au mieux à leurs attentes.<br>
+  Astuce : veillez à être rigoureux lors de la rédaction de votre offre. Pensez par exemple à bien lire le dossier en entier et à noter sur papier toutes les spécificités et remarques qui vous viennent en tête lors de la lecture. Reprenez vos notes régulièrement pour vous assurez de ne rien avoir oublié.
+  </p>
+</div>
+
+<div>
+    <h1>6/ Utiliser des solutions modernes dans votre organisation</h1>
+    <p>
+        Avec le système d’appel d’offres il est parfois difficile de se démarquer de ses concurrents. Certains éléments peuvent vous permettre de le faire. En effet, si vous mettez en avant le fait que vous utilisez des solutions logicielles qui permettent de tenir informer le demandeur avec des rapports, cela vous permet de prouver votre sérieux, votre professionnalisme et votre transparence .
+    </p>
+</div>
+
+<div class="template">
+    <h1 >7/ Prendre contact après le dépôt du dossier</h1>
+    <p>
+       Dans la mesure du possible il est judicieux de prendre contact avec le responsable du marché, une fois que le dossier de candidature a été déposé. Prétexté le fait de savoir si ils l’ont bien reçu et essayez de collecter les premières impressions. Cela vous permettra d’entretenir la relation mais aussi de les rassurer face aux premières craintes.
+    </p>
+</div>
+
+<div>
+   <h1>8/ Préparer l’oral</h1>
+   <p>
+       La procédure d’appel d’offres fait souvent l’objet d’un oral réunissant les potentiels sélectionnés et le demandeur. Il est donc important de préparer l’oral. Apportez-y du soin dans la préparation et dans l’exécution. Ne négligez aucuns détail du cadre de l’appel d’offres, du contexte, du public mais aussi et surtout des attentes du demandeur.
+   </p>
+</div>
+    <div class="template">
+       <h1 >9/ Savoir négocier</h1>
+        <p>
+            La négociation fait fréquemment partie prenante du processus de sélection lors d’un appel d’offres. Comme pour l’oral il faut la préparer. Savoir négocier c’est aussi connaître parfaitement son produit, les attentes du client mais aussi ses limites. 
+         </p>
+    </div>
+<div>
+    <h1>10/ Analyser les appels d’offres conclus</h1>
+    <p>
+        Enfin, la dernière petite astuce est de faire le point sur les appels d’offres. Qu’il se soit conclu favorablement ou défavorablement il est important de faire le bilan sur ce qu’on a fait afin de savoir ce qui nous a mené au succès ou à l’échec. De même, il convient de se renseigner sur les tarifs des autres candidats afin de savoir si vous êtes trop cher. Une telle démarche vous permettra d’augmenter vos chances de gagner vos prochains appels d’offres.
+    </p>
+</div>
+ </div>
+  <div>
+         <h1>Comment bien élaborer un appel d’offres  ?</h1>
+        <video  src="{{'video/conso.mp4'}}" width=1350px  height=250px  preload="auto" autoplay controls></video>
+        
+     </div>
+ 
+    <!-- Footer -->
+     <h1 class="center">Nos partenaires</h1>
+<footer class="page-footer font-small mdb-color lighten-3 pt-4 fond origine">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner center">
+    <div class="carousel-item active">
+      <img class="carousel-page" src="{{'images/cerba.jpg'}}" alt="First slide">
+       <img class="carousel-page" src="{{'images/biolab.jpg'}}" alt="First slide">
+       <img class="carousel-page" src="{{'images/atom.jpg'}}" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img class="carousel-page" src="{{'images/bio24.jpg'}}" alt="Second slide">
+      <img class="carousel-page" src="{{'images/htds.jpg'}}" alt="Second slide">
+      <img class="carousel-page" src="{{'images/sifin.jpg'}}" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img class="carousel-page" src="{{'images/metler.jpg'}}" alt="Third slide">
+      <img class="carousel-page" src="{{'images/mission.jpg'}}" alt="Third slide">
+      <img class="carousel-page" src="{{'images/institut.jpg'}}" alt="Third slide">
+    </div>
+
+    <div class="carousel-item">
+      <img class="carousel-page" src="{{'images/euromium.jpg'}}" alt="Third slide">
+      <img class="carousel-page" src="{{'images/toledo.jpg'}}" alt="Third slide">
+      <img class="carousel-page" src="{{'images/ohaus.jpg'}}" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="http://www.2iris.sn//"> www.2iris.com</a>
+  
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->  
+  
+  {% endblock %}

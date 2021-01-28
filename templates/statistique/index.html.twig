@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello StatistiqueController!{% endblock %}
+
+{% block body %}
+  <div class="wrapper">
+        <div class="left-side">
+            <div class="logo">
+                <img src="img/2iris.jpg" alt="" />
+            </div>
+            <div class="left-content">
+                <ul role="tablist">
+                    <li role="presentation" class="active"><a href="#one" aria-controls="home" role="tab" data-toggle="tab"><span><i class="fa fa-pie-chart"></i></span>Diagramme circulaire</a></li>
+                    <li role="presentation"><a href="#two" aria-controls="home" role="tab" data-toggle="tab"><span><i class="fa fa-line-chart"></i></span>Courbe</a></li>
+                    <li role="presentation"><a href="#three" aria-controls="home" role="tab" data-toggle="tab"><span><i class="fa fa-bar-chart"></i></span>Diagramme en barre</a></li>
+                    <li role="presentation"><a href="#six" aria-controls="home" role="tab" data-toggle="tab"><span><i class=""></i></span>Diagramme en barre horizontal</a></li>
+                    <li role="presentation"><a href="#source" aria-controls="home" role="tab" data-toggle="tab"><span><i class="fa fa-thumbs-up"></i></span>radar</a></li>
+                    <li role="presentation"><a href="#support" aria-controls="home" role="tab" data-toggle="tab"><span><i class="fa fa-support"></i></span>doughnut</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p>Copyright &#169; 2020 <a href="http://www.2iris.com/" >2iris</a></p>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="right-content">
+                <div id="one" class="content active fade in">
+                    <h1><span>2IRIS</span> - ANALYSE DE DONNEES</h1>
+                    <div class="content-welcome">
+                        <p>
+                            
+                        </p>
+                    </div>
+                    <div class="created">
+                        <p>
+                        <canvas id="myChart"></canvas>
+                        </p>
+                    </div>
+                 
+</div>
+                
+                
+
+                
+           
+</div>
+    
+{% endblock %}
+
+{% block javascripts %}
+<script src="js/jquery-3.1.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/jstree.min.js"></script>
+    <script src="js/jstree.active.js"></script>
+    <script src="js/main.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+      <script>
+            let myChart = document.getElementById('myChart').getContext('2d');
+         
+             //Les options globals
+            Chart.defaults.global.defaultFontFamily='Lato';
+            Chart.defaults.global.defaultFontSize =18;
+            Chart.defaults.global.defaulFontColor ='#777';
+
+            let massPopChart = new Chart(myChart,{
+                 
+                type:'line',
+                data:{
+                    labels:{{nom_entreprise|raw}},
+                    datasets:[{
+                        label:'Plan de rapartition du Coronavirus',
+                        data:{{offre_financier |raw}},
+                        // backgroundColor:'green'
+                        backgroundColor:{{color |raw}},
+                        borderWith:1,
+                        borderColor:'#777',
+                        hoverBorderWidth:3,
+                        hoverBorderColor:'#000'
+                    }]
+                },
+                options:{
+                    title:{
+                        display:true,
+                        text:"Appels d'offres  2020",
+                        fontSize:25
+                    },
+                    legend:{
+                        position:'right',
+                        labels:{
+                            fontColor:'#000'
+                        }
+                    }
+                }
+            })
+
+         //Deuxieme graphe a decouvrir
+         
+        </script>
+
+     
+{% endblock %}
+
+

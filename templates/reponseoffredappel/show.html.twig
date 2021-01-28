@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reponseoffredappel{% endblock %}
+
+{% block body %}
+    <h1>Reponseoffredappel</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reponseoffredappel.id }}</td>
+            </tr>
+            <tr>
+                <th>NomEntreprise</th>
+                <td>{{ reponseoffredappel.nomEntreprise }}</td>
+            </tr>
+            <tr>
+                <th>OffreFinancier</th>
+                <td>{{ reponseoffredappel.offreFinancier }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('reponseoffredappel_index') }}">back to list</a>
+
+    <a href="{{ path('reponseoffredappel_edit', {'id': reponseoffredappel.id}) }}">edit</a>
+
+    {{ include('reponseoffredappel/_delete_form.html.twig') }}
+{% endblock %}

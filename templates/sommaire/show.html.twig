@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sommaire{% endblock %}
+
+{% block body %}
+    <h1>Sommaire</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sommaire.id }}</td>
+            </tr>
+            <tr>
+                <th>Ajout</th>
+                <td>{{ sommaire.ajout }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('sommaire_index') }}">back to list</a>
+
+    <a href="{{ path('sommaire_edit', {'id': sommaire.id}) }}">edit</a>
+
+    {{ include('sommaire/_delete_form.html.twig') }}
+{% endblock %}

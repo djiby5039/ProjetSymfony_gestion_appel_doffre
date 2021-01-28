@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Dossieradministratif{% endblock %}
+
+{% block body %}
+    <h1>Create new Dossieradministratif</h1>
+
+    {{ include('dossieradministratif/_form.html.twig') }}
+
+    <a href="{{ path('dossieradministratif_index') }}">back to list</a>
+{% endblock %}

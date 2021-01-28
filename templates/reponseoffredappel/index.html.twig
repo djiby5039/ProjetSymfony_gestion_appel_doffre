@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block body %}
+
+    <table class="table jumbotron">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomEntreprise</th>
+                <th>OffreFinancier</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reponseoffredappel in reponseoffredappels %}
+            <tr>
+                <td>{{ reponseoffredappel.id }}</td>
+                <td>{{ reponseoffredappel.nomEntreprise }}</td>
+                <td>{{ reponseoffredappel.offreFinancier }}</td>
+                <td>{{ reponseoffredappel.color}}</td>
+                 <td>{{ reponseoffredappel.typeDiagramme}}</td>
+                <td>
+                    <a href="{{ path('reponseoffredappel_show', {'id': reponseoffredappel.id}) }}">show</a>
+                    <a href="{{ path('reponseoffredappel_edit', {'id': reponseoffredappel.id}) }}">edit</a>
+                    <a href="{{ path('statistique') }}">Visualiser</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('reponseoffredappel_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New LettreDeRetrait{% endblock %}
+
+{% block body %}
+    
+      <div class='jumbotron'>
+    {{ include('lettre_de_retrait/_form.html.twig') }}
+
+    <a href="{{ path('lettre_de_retrait_index') }}">back to list</a>
+    </div>
+{% endblock %}

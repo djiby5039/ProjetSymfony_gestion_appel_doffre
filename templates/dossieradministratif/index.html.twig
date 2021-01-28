@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dossieradministratif index{% endblock %}
+
+{% block body %}
+    
+
+    <table class="table jumbotron">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_etablissement</th>
+                <th>Numero_offre</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dossieradministratif in dossieradministratifs %}
+            <tr>
+                <td>{{ dossieradministratif.id }}</td>
+                <td>{{ dossieradministratif.nomEtablissement }}</td>
+                <td>{{ dossieradministratif.numeroOffre }}</td>
+                 <td><a href="{{ asset("dossier_administratif/" ~ dossieradministratif.fichier) }}" target = "_blank" >Visualiser</a></td>
+                <td>
+                    <a href="{{ path('dossieradministratif_show', {'id': dossieradministratif.id}) }}">show</a>
+                    <a href="{{ path('dossieradministratif_edit', {'id': dossieradministratif.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('dossieradministratif_new') }}">Create new</a>
+{% endblock %}

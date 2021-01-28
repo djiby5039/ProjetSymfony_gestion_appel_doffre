@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Reponseoffredappel{% endblock %}
+
+{% block body %}
+    <h1>Create new Reponseoffredappel</h1>
+
+    {{ include('reponseoffredappel/_form.html.twig') }}
+
+    <a href="{{ path('reponseoffredappel_index') }}">back to list</a>
+{% endblock %}

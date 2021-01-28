@@ -1,0 +1,14 @@
+{{ form_start(form) }}
+    {{ form_row(form.numeroOffre) }}
+    <h3>Offres reçues</h3>
+    <ul class="reponses" data-prototype="{{ form_widget(form.reponses.vars.prototype)|e('html_attr') }}">
+        {% for reponse in form.reponses %}
+            <li>{{ form_row(reponse.nomEntreprise) }}</li>
+            <li>{{ form_row(reponse.offreFinancier) }}</li>
+        {% endfor %}
+    </ul>
+    <div style="display: none">
+    {{ form_row(form.reponses)}}
+    </div>
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

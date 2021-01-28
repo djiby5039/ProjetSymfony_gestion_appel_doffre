@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Dossieradministratif{% endblock %}
+
+{% block body %}
+    <h1>Edit Dossieradministratif</h1>
+
+    {{ include('dossieradministratif/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('dossieradministratif_index') }}">back to list</a>
+
+    {{ include('dossieradministratif/_delete_form.html.twig') }}
+{% endblock %}

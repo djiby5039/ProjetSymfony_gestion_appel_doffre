@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Offredappel index{% endblock %}
+
+{% block body %}
+    
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NumeroOffre</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offredappel in offredappels %}
+            <tr>
+                <td>{{ offredappel.id }}</td>
+                <td>{{ offredappel.numeroOffre }}</td>
+                <td>
+                    <a href="{{ path('offredappel_show', {'id': offredappel.id}) }}">show</a>
+                    <a href="{{ path('offredappel_edit', {'id': offredappel.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('offredappel_new') }}">Create new</a>
+{% endblock %}

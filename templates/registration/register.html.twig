@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<style>
+.fond{
+     background-color:#BCB8B7;
+     margin-top:200px;
+     height:200px;
+ }
+
+.back{
+    background-color:#4F3832;
+     height:550px;
+}
+
+.bouge{
+     margin-left:600px;
+ }
+
+ .texte{
+    margin-left:550px;
+    color:white;
+    
+    
+}
+</style>
+<div class="back">
+<h1 class="texte">Inscription</h1>
+
+<form class="fond">
+    
+
+    {{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword) }}<br><br>
+        <button class="btn  btn-lg btn-primary bouge">Register</button>
+    {{ form_end(registrationForm) }}
+
+</form>
+</div>
+{% endblock %}

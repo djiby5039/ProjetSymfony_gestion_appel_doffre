@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pagedegarde{% endblock %}
+
+{% block body %}
+    <h1>Pagedegarde</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pagedegarde.id }}</td>
+            </tr>
+            <tr>
+                <th>Numero_copieoriginal</th>
+                <td>{{ pagedegarde.numeroCopieoriginal }}</td>
+            </tr>
+            <tr>
+                <th>Numero_copie1</th>
+                <td>{{ pagedegarde.numeroCopie1 }}</td>
+            </tr>
+            <tr>
+                <th>Numero_copie2</th>
+                <td>{{ pagedegarde.numeroCopie2 }}</td>
+            </tr>
+            <tr>
+                <th>Numero_copie3</th>
+                <td>{{ pagedegarde.numeroCopie3 }}</td>
+            </tr>
+            <tr>
+                <th>Numero_copie4</th>
+                <td>{{ pagedegarde.numeroCopie4 }}</td>
+            </tr>
+            <tr>
+                <th>Numero_copie5</th>
+                <td>{{ pagedegarde.numeroCopie5 }}</td>
+            </tr>
+            <tr>
+                <th>Numero_copiebureau</th>
+                <td>{{ pagedegarde.numeroCopiebureau }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('pagedegarde_index') }}">back to list</a>
+
+    <a href="{{ path('pagedegarde_edit', {'id': pagedegarde.id}) }}">edit</a>
+
+    {{ include('pagedegarde/_delete_form.html.twig') }}
+{% endblock %}

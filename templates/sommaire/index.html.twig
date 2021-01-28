@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sommaire index{% endblock %}
+
+{% block body %}
+   
+
+    <table class="table jumbotron">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ajout</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for sommaire in sommaires %}
+            <tr>
+                <td>{{ sommaire.id }}</td>
+                <td>{{ sommaire.ajout }}</td>
+                <td><a href="{{ asset("sommaire/" ~ sommaire.fichier) }}" target = "_blank" >visualiser</a></td>
+                <td>
+                    <a href="{{ path('sommaire_show', {'id': sommaire.id}) }}">show</a>
+                    <a href="{{ path('sommaire_edit', {'id': sommaire.id}) }}">edit</a>
+                   
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('sommaire_new') }}">Create new</a>
+{% endblock %}

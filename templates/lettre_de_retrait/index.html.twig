@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LettreDeRetrait index{% endblock %}
+
+{% block body %}
+    
+
+    <table class="table jumbotron">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Lieu</th>
+                <th>Destinataire</th>
+                <th>Adr_desti</th>
+                <th>Reference</th>
+                <th>Num_offre</th>
+                <th>Nom Fichier</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for lettre_de_retrait in lettre_de_retraits %}
+            <tr>
+                <td>{{ lettre_de_retrait.id }}</td>
+                <td>{{ lettre_de_retrait.date ? lettre_de_retrait.date|date('Y-m-d') : '' }}</td>
+                <td>{{ lettre_de_retrait.lieu }}</td>
+                <td>{{ lettre_de_retrait.destinataire }}</td>
+                <td>{{ lettre_de_retrait.adrDesti }}</td>
+                <td>{{ lettre_de_retrait.reference }}</td>
+                <td>{{ lettre_de_retrait.numOffre }}</td>
+                <td><a href="{{ asset("documents/" ~ lettre_de_retrait.fichier) }}" target = "_blank" >Visualiser</a></td>
+                <td>
+                    <a href="{{ path('lettre_de_retrait_show', {'id': lettre_de_retrait.id}) }}">show</a>
+                    <a href="{{ path('lettre_de_retrait_edit', {'id': lettre_de_retrait.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('lettre_de_retrait_new') }}">Create new</a>
+{% endblock %}

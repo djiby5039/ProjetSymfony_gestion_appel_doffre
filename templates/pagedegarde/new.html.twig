@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Pagedegarde{% endblock %}
+
+{% block body %}
+    <h1>Create new Pagedegarde</h1>
+
+    {{ include('pagedegarde/_form.html.twig') }}
+
+    <a href="{{ path('pagedegarde_index') }}">back to list</a>
+{% endblock %}
